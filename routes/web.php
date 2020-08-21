@@ -17,7 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('products')->group(function (){
+Route::get('/login','UserController@indexLogin')->name('login');
+Route::post('/login','UserController@storeLogin')->name('logins.store');
+Route::get('/register','UserController@indexRegister')->name('logins.register');
+Route::post('/register','UserController@storeRegister')->name('logins.storeRegister');
+Route::get('/logOut','UserController@logOut')->name('logins.logout');
+
+Route::middleware('auth')->prefix('products')->group(function (){
     Route::get('/','ProductController@index')->name('products.index');
     Route::get('/create','ProductController@create')->name('products.create');
     Route::post('/create','ProductController@store')->name('products.store');
@@ -27,3 +33,6 @@ Route::prefix('products')->group(function (){
     Route::get('/search','ProductController@search')->name('products.search');
 
 });
+
+Route::get('/redirect/{social}', 'SocialAuthController@redirect');
+Route::get('/callback/{social}', 'SocialAuthController@callback');

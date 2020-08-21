@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <a href="{{route('products.index')}}">Products</a>
-                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="{{route('login')}}">Logins</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
                     <a href="https://nova.laravel.com">Nova</a>

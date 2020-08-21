@@ -66,13 +66,20 @@ $(document).ready(function () {
         })
     }
 
-    $('.delete-product').click(function () {
-        if (confirm('Are you sure?')) {
+    $('body').on('click','.delete-product',function (){
+        if (confirm('Are you sure?')){
             let id = $(this).attr('data-id');
             deleteProduct(id)
-
         }
     })
+
+    // $('.delete-product').click(function () {
+    //     if (confirm('Are you sure?')) {
+    //         let id = $(this).attr('data-id');
+    //         deleteProduct(id)
+    //
+    //     }
+    // })
 
     $('#btn-update').click(function () {
 
@@ -151,7 +158,6 @@ $(document).ready(function () {
                     html += '</td>';
 
 
-
                 })
                 $('#list-products').html(html)
             }
@@ -159,8 +165,22 @@ $(document).ready(function () {
 
     })
 
-
-
-
-
 })
+
+//ajax select option
+// $(document).ready(function ()
+// {
+//     $('#add-select').click(function () {
+//         let book_list = JSON.parse(books);
+//         let html = '';
+//         html += '<select name="book_id" id="book-select" class="form-control mt-3">';
+//         $.each(book_list, function (key, value) {
+//             console.log(value);
+//             html += '<option value="'+ value.id +'">';
+//             html += value.name;
+//             html += '</option>';
+//         })
+//         html += '</select>'
+//         $('#div-select').append(html)
+//     })
+// })

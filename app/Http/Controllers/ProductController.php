@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 {
@@ -29,6 +30,9 @@ class ProductController extends Controller
     public function create()
     {
         //
+        if (!Gate::allows('crud-user')){
+            abort(403);
+        }
         return view('products.create');
     }
 

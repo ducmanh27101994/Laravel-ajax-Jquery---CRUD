@@ -5,9 +5,9 @@
 @section('content')
 
     <div class="container" id="delete-set">
-
+        @can('crud-user')
         <a href="{{route('products.create')}}">Add Product</a>
-
+        @endcan
 {{--        <form class="form-inline" method="get" action="{{route('products.search')}}">--}}
 
 {{--            <div class="form-group mx-sm-3 mb-2">--}}
@@ -52,8 +52,10 @@
                 <td>{{$product->price}}</td>
                 <td>{{$product->color}}</td>
                 <td>{{$product->desc}}</td>
+                @can('crud-user')
                 <td><a href="{{route('products.edit',$product->id)}}">Edit</a></td>
                 <td><button class="delete-product" data-id="{{$product->id}}">Delete</button></td>
+                @endcan
 
             </tr>
                 @endforeach
